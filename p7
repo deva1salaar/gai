@@ -1,5 +1,6 @@
 from transformers import pipeline
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
 long_text = """
 The Hugging Face Transformers library provides a simple and consistent API for using a
 wide variety of pre-trained models
@@ -17,5 +18,7 @@ high-quality summaries that are useful for a variety of applications, such as ne
 aggregation, document review,
 and information retrieval.
 """
+
 summary = summarizer(long_text, max_length=100, min_length=30, do_sample=False)
-print("Summary:", summary[0]['summary_text']
+
+print("Summary:", summary[0]['summary_text'])
